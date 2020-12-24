@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  // The path to the mysite module.
+  $path = drupal_get_path('module', 'mysite');
+  drupal_add_css($path . '/css/mysite.css');
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function mysite_form_comment_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  // Alter comment form for anonymous users.
+  if ($user->uid == 0) {
+    // dpm($form);
+
+    $form['author']['name']['#prefix'] = '<div class="comment-contact">';
+    $form['author']['homepage']['#suffix'] = '</div>';
+  }
+}
+

@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Override or insert variables into node templates of all
+ * enabled themes.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ */
+function mysite_preprocess_node(&$variables) {
+  // Add taxonomy-based classes to the node markup.
+  foreach ($variables['field_category'] as $term) {
+    $variables['classes_array'][] = 'taxonomy-' . $term['tid'];
+  }
+}
+

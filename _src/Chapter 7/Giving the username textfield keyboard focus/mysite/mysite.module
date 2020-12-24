@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  global $user;
+
+  // Only include the JS file for anonymous users.
+  if ($user->uid == 0) {
+    // The path to the mysite module.
+    $path = drupal_get_path('module', 'mysite');
+
+    drupal_add_js($path . '/js/userfocus.js');
+  }
+}
+

@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  // Display a message on every page load.
+  drupal_set_message("Welcome to MySite!");
+}
+

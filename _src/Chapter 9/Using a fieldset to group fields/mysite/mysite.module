@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mysite_form_contact_site_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form);
+
+  // Add vertical tabs support.
+//  $form['contact'] = array(
+//    '#type' => 'vertical_tabs'
+//  );
+
+  // Wrap the name and mail fields in a fieldset.
+  $form['contact_fields'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Contact information'),
+//    '#group' => 'contact'
+  );
+
+  // Move existing fields to fieldset.
+  $form['contact_fields']['name'] = $form['name'];
+  $form['contact_fields']['mail'] = $form['mail'];
+
+  // Wrap the subject, message, category and copy fields
+  // in a fieldset.
+  $form['message_fields'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Message'),
+//    '#group' => 'contact'
+  );
+
+  // Move existing fields to fieldset.
+  $form['message_fields']['subject'] = $form['subject'];
+  $form['message_fields']['cid'] = $form['cid'];
+  $form['message_fields']['message'] = $form['message'];
+  $form['message_fields']['copy'] = $form['copy'];
+
+  // Move the submit button below our fieldsets.
+  $form['submit']['#weight'] = 1;
+
+  // Clear out the now unnecessary form elements.
+  unset($form['name'], $form['mail'], $form['subject'], $form['message'], $form['copy'], $form['cid']);
+}
+

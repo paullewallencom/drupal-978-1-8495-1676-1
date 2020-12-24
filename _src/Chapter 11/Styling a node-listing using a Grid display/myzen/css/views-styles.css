@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Views Styling
+ */
+
+/* Product gallery */
+.view-product-gallery table {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+

@@ -1,0 +1,22 @@
+/**
+ * @file
+ * Views Styling
+ */
+
+/* Tracker */
+.view-tracker .tracker-page {
+  background: #FC0;
+}
+
+.view-tracker .tracker-page .active {
+  background: #A80;
+}
+
+.view-tracker .tracker-story {
+  background: #A90;
+}
+
+.view-tracker .tracker-story .active {
+  background: #890;
+}
+

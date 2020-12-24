@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function mysite_form_alter(&$form, &$form_state, $form_id) {
+  // dpm($form_id);
+  // dpm($form);
+
+  // Check if the current form is a node form.
+  if (isset($form['#node_edit_form'])) {
+    $form['body'][$form['language']['#value']][0]['#rows'] = 5;
+  }
+}
+

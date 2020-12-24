@@ -1,0 +1,29 @@
+/* $Id: views-styles.css,v 1.1 2009/08/12 04:25:15 johnalbin Exp $ */
+
+/**
+ * @file
+ * Views Styling
+ */
+
+/* Backlinks */
+.backlinks {
+  float: right;
+  display: inline;
+  padding: 0 1em;
+  margin: 0 0 0.5em 1em;
+  border-left: dashed 1px;
+}
+
+.backlinks h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.backlinks ul {
+  padding-left: 1.2em;
+}
+
+.backlinks ul li {
+  list-style: square;
+}
+

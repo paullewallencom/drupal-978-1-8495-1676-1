@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  // Export a single variable.
+  drupal_add_js(array('hello' => 'Hello World!'), 'setting');
+
+  // Wrap multiple related variables inside a parent variable.
+  drupal_add_js(array(
+    'helloarray' => array(
+      'hello' => 'Hello World!',
+      'goodbye' => 'Goodbye World!'
+    )
+  ), 'setting');
+  
+  // The path to the mysite module.
+  $path = drupal_get_path('module', 'mysite');
+  drupal_add_js($path . '/js/hello.js');
+}
+

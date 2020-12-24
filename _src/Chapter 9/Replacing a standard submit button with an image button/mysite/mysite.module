@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function mysite_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // dpm($form);
+
+  $path = drupal_get_path('module', 'mysite');
+  $form['actions']['submit']['#type'] = $form['actions']['preview']['#type'] = 'image_button';
+  $form['actions']['submit']['#src'] = $path . '/images/save.png';
+  $form['actions']['preview']['#src'] = $path . '/images/preview.png';
+}
+

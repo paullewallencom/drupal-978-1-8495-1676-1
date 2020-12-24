@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  // Include file only for node pages.
+  if (arg(0) == 'node') {
+    // The path to the mysite module.
+    $path = drupal_get_path('module', 'mysite');
+
+    drupal_add_js($path . '/js/hello.js');
+  }
+}
+

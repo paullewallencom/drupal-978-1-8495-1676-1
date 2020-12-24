@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function mysite_form_alter(&$form, &$form_state, $form_id) {
+  // Print the form ID to the screen as a message.
+  dpm($form_id);
+
+//  Analyze the entire form array.
+//  dpm($form);
+}
+

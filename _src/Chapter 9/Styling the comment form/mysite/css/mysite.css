@@ -1,0 +1,13 @@
+.comment-contact {
+  width: 94%;
+  padding-left: 1em;
+  background-color: #FEE;
+  border: 1px dashed red;
+}
+
+.comment-contact label {
+  float: left;
+  width: 110px;
+  margin-right: 10px;
+}
+

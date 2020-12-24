@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function mysite_form_alter(&$form, &$form_state, $form_id) {
+  // dpm($form);
+
+  // Set the class attribute and add some JS goodness to the
+  // search form when both the theme search box as well as
+  // the basic search form are visible.
+  if ($form_id == 'search_form') {
+    // Set the class attribute of the search form textfield.
+    $form['basic']['keys']['#attributes']['class'][] = 'search-text';
+
+    // The path to the mysite module.
+    $path = drupal_get_path('module', 'mysite');
+    drupal_add_js($path . '/js/search.js');
+  }
+  else if ($form_id == 'search_block_form') {
+    // Set the class attribute of the search-box textfield.
+    $form['search_block_form']['#attributes'] = array('class' => array('search-text'));
+  }
+}

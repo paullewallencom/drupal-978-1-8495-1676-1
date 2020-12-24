@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * Override or insert variables into node templates of all
+ * enabled themes.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered (name of the .tpl.php file.)
+ */
+function mysite_preprocess(&$variables, $hook) {
+  // Cache author role names.
+  static $author_roles = array();
+  // Cache author role classes.
+  static $author_role_classes = array();
+
+  // Modify variables for the page template file.
+  if ($hook == 'page' && isset($variables['node'])) {
+    $user = user_load($variables['node']->uid);
+
+    $author_role_classes = array();
+    foreach ($user->roles as $rid => $role) {
+      $author_role_classes[] = 'author-role-' . $rid;
+      // Only display custom roles; ignore anonymous and authenticated
+      // user roles.
+      if ($rid > 2) {
+        $author_roles[] = $role;
+      }
+    }
+  }
+  else if ($hook == 'html' && !empty($author_role_classes)) {
+    // Add classes to the <body> tag.
+    $variables['classes_array'] = array_merge($variables['classes_array'], $author_role_classes);
+  }
+  // Modify variables for the node template file.
+  else if ($hook == 'node' && !empty($author_roles)) {
+    // Modify submission information text to include role names.
+    $variables['submitted'] = t('Submitted by !username (!roles) on !datetime',
+      array('!username' => $variables['name'],
+        '!roles' => implode(', ', $author_roles),
+        '!datetime' => $variables['date']
+      )
+    );
+  }
+}

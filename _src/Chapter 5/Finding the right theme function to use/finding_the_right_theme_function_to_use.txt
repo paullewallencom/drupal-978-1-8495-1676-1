@@ -1,0 +1,12 @@
+// Print the current user who is always available via a
+// global variable.
+global $user;
+$username = theme('username', array('account' => $user));
+print($username);
+print("\n");
+
+// Print some other user: User with user ID 5.
+$user_other = user_load(5);
+$username2 = theme('username', array('account' => $user_other));
+print($username2);
+

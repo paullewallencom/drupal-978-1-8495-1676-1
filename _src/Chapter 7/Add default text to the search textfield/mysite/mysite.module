@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  // The path to the mysite module.
+  $path = drupal_get_path('module', 'mysite');
+
+  // Add our custom Javascript file.
+  drupal_add_js($path . '/js/search.js');
+}

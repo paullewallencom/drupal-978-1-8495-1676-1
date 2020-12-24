@@ -1,0 +1,1 @@
+The three versions of hello.js mentioned in the recipe have been added in these files as hello.js, hello1.js and hello2.js respectively. The relevant include statements have also been added to myzen.info with the two variants commented out.

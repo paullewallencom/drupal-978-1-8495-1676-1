@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  global $user;
+
+  // Analyze the $user variable.
+  dpm($user);
+}
+

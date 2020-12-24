@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function mysite_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // dpm($form);
+
+  // Move the author fieldset outside the vertical tabs
+  // group and keep it uncollapsed.
+  unset($form['author']['#group']);
+  $form['author']['#collapsed'] = FALSE;
+
+  // Move the revision information fieldset to the top
+  // of the vertical tabs group, thereby making it the
+  // default.
+  $form['revision_information']['#weight'] = -10;
+}
+

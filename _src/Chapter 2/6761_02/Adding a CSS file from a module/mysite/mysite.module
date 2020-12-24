@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function mysite_init() {
+  // The path to the mysite module.
+  $path = drupal_get_path('module', 'mysite');
+
+  // Include mysite.css.
+  drupal_add_css($path . '/css/mysite.css');
+
+  // Include mysite_special.css, but do not preprocess
+  // and prioritize file.
+  drupal_add_css($path . '/css/mysite-special.css', array('preprocess' => FALSE, 'weight' => -20));
+
+  // Include inline CSS.
+  drupal_add_css('<style type="text/css">body { color: #000; }</style>', 'inline');
+}
+

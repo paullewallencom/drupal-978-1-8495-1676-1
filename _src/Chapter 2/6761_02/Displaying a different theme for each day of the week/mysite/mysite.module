@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_custom_theme().
+ */
+function mysite_custom_theme() {
+  // An array of themes for each day of the week.
+  // These themes have to be installed and enabled.
+  $themes = array();
+  $themes[0] = 'garland';
+  $themes[1] = 'bartik';
+  $themes[2] = 'stark';
+  $themes[3] = 'seven';
+  $themes[4] = 'mytheme';
+  $themes[5] = 'sky';
+  $themes[6] = 'danland';
+
+  // Get the current day of the week in numerical form.
+  $day = date("w");
+
+  // Override current theme based on day of the week.
+  return $themes[$day];
+}
+
